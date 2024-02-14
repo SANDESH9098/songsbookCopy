@@ -1,0 +1,32 @@
+{% extends 'song/base.html' %}
+
+{% block Title %}
+	క్రైస్తవ రక్షణ సునాధ కీర్తనలు
+{% endblock %}
+
+{% block Content %}
+
+    <div class="container">
+
+	<ul class="list-group">
+    <li class="list-group-item custom-link-group-item d-flex justify-content-between align-items-center custom-color" style="position: sticky ; top:0; z-index: 2">
+        <div class="ms-2 me-auto custom-list-header">
+            <div class="fw-bold">పాట పేరు</div>
+        </div>
+        <span class="badge " style="color: black" >సంఖ్య</span>
+
+    </li>
+    {% for song in songs %}
+        <a href="{{ song.get_absolute_url }}" class="list-group-item custom-link-group-item d-flex justify-content-between align-items-center">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">{{ song.title }}</div>
+                 </div>
+            <span class="badge bg-primary "  >{{ song.number }}</span>
+
+        </a>
+    {% endfor %}
+    </ul>
+
+    </div>
+
+{% endblock %}

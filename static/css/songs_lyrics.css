@@ -1,0 +1,48 @@
+.custom-text-area{
+
+    border-radius: 5px;
+    align-content: center;
+    font-family: Ramaraja;
+}
+
+.lyrics-pre{
+    white-space: pre-wrap;
+    font-size: 1.2em;
+    font-family: Tenali Ramakrishna;
+    padding: 10px;
+
+    border-radius: 5px;
+}
+
+.navbar-text{
+    font-family: Ramaraja;
+    font-size: 1.5em;
+
+}
+
+.song-hint{
+    text-align: right;
+    font-style: italic;
+    padding: 0;
+    margin: 0;
+}
+
+.lyr-nav{
+    padding: 0 5px 0 10px;
+    background-color: #ffffab;
+}
+
+
+/* Large Screens (laptop Responsive) */
+
+@media (min-width: 992px) {
+    .lyrics-pre{
+
+        font-size: 30px;
+        width: 80%;
+        margin: 0 10%;
+
+    }
+
+
+}

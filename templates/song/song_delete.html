@@ -1,0 +1,31 @@
+{% extends 'song/base.html' %}
+
+
+{% block Title %}
+	Delete {{ song.number }}
+{% endblock %}
+{% block Content %}
+
+
+    {% if user.is_authenticated %}
+
+        <h1>Delete {{ song.number }}</h1>
+        <p>Are you sure you want to delete this song?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Yes, delete it</button>
+        </form>
+
+        {% else %}
+            <div class="container my-5 ">
+                <h1 class="text-center">You Are not Allowed to this site</h1>
+                <hr>
+                <a href="{% url 'home' %}" class="btn btn-primary" >Go To Home Page</a>
+            </div>
+
+
+
+    {% endif %}
+
+
+{% endblock %}

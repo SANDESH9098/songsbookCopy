@@ -1,0 +1,23 @@
+{% extends 'song/base.html' %}
+
+{% block Title %}
+	Draft Songs - Not Published
+{% endblock %}
+
+{% block Content %}
+
+    <ul class="list-group">
+{% for draft_song in draft_songs %}
+
+
+
+    <a href="{% url 'song_detail' draft_song.number draft_song.slug %}" class="list-group-item custom-link-group-item d-flex justify-content-between align-items-center">
+        <div class="ms-2 me-auto">
+                <div class="fw-bold">{{ draft_song.title }}</div>
+                 </div>
+    </a>
+
+{% endfor %}
+    </ul>
+
+{% endblock %}

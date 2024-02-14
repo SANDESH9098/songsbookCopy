@@ -1,0 +1,59 @@
+{% extends 'song/base.html' %}
+{% load song_tags %}
+
+{% block Title %}
+	{{ song.title }} - Lyrics
+{% endblock %}
+
+{% block Content %}
+ <nav class="navbar navbar-expand-lg  lyr-nav" style="background-color: #ffffab">
+
+  <div class="container-fluid lyr-nav">
+    {% if prev_song %}
+    <a class="navbar-brand" href="{% url 'song_detail' number=prev_song.number slug=prev_song.slug %}">
+      <i class="bi bi-arrow-left-circle-fill"></i>
+    </a>
+    {% else %}
+    <span class="navbar-brand">
+      <i class="bi bi-arrow-left-circle-fill" style="color: grey;"></i>
+    </span>
+    {% endif %}
+    <div class="d-flex justify-content-center  h-20px">
+      <span class="navbar-text">
+        {{ song.title }}
+      </span>
+    </div>
+    {% if next_song %}
+    <a class="navbar-brand" href="{% url 'song_detail' number=next_song.number slug=next_song.slug %}">
+      <i class="bi bi-arrow-right-circle-fill"></i>
+    </a>
+    {% else %}
+    <span class="navbar-brand">
+      <i class="bi bi-arrow-right-circle-fill" style="color: grey;"></i>
+    </span>
+    {% endif %}
+  </div>
+</nav>
+
+
+<div class="container">
+    <article class="mb-5  custom-text-area">
+        <!-- Use p instead of div for text, with text-break to ensure wrapping -->
+
+            <pre class="lyrics-pre">{{ song.body|markdown}}</pre>
+
+    </article>
+
+    {% if user.is_authenticated %}
+        <hr>
+    <div class="d-flex justify-content-center " >
+      <a href="{% url 'song_update' number=song.number slug=song.slug %}" class="btn btn-primary m-5">Edit</a>
+      <a href="{% url 'song_delete' number=song.number slug=song.slug %}" class="btn btn-danger m-5">Delete</a>
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
+

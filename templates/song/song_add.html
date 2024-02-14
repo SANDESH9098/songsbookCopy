@@ -1,0 +1,53 @@
+{% extends 'song/base.html' %}
+{% load widget_tweaks %}
+
+
+
+
+
+
+{% block Content %}
+
+    <h1 style="text-align: center">Add New Song</h1>
+
+{% if user.is_authenticated %}
+	<div class="container my-5">
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="row">
+            {% for field in form %}
+                <div class="col-md-6 mb-3"> <!-- Adjust the column sizes as needed -->
+                    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                    {% render_field field class="form-control" placeholder=field.label %}
+
+                    {% if field.help_text %}
+                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <div class="alert alert-danger mt-2">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="form-group mt-4">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% else %}
+    <div class="container my-5 ">
+        <h1 class="text-center">You need to be logged in to add a song</h1>
+        <hr>
+        <a href="{% url 'home' %}" class="btn btn-primary" >Go To Home Page</a>
+    </div>
+
+    {% endif %}
+
+
+
+{% endblock %}
+

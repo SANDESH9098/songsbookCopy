@@ -1,0 +1,61 @@
+body{
+
+
+
+}
+
+
+.search-form {
+    /* Adjust this to your navbar height and alignment */
+    display: none; /* Initially hide the search form */
+    margin-left: auto;
+}
+
+.navbar-brand {
+    display: block; /* Ensure the brand name is initially shown */
+}
+
+.base-nav-custom{
+    background-color: rgba(22, 84, 51, 0.81);
+}
+
+
+/* Remove default margins and padding */
+.navbar {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+/* Ensure the container-fluid also has no padding or margin */
+.container-fluid {
+    padding: 0;
+    margin: 0;
+}
+
+/* Additional styling for the navbar-brand to ensure no extra spacing */
+#brandName {
+    margin: 0; /* Adjust as necessary */
+    font-family: Dhurjati;
+    font-size: 1.5em;
+    color: #ffffab;
+}
+
+/* Additional styling for search form to remove any extra spacing */
+.search-form {
+    margin: 0; /* Adjust as necessary */
+}
+
+/* Sticky Navbar */
+.base-nav-custom {
+    background-color: rgba(22, 84, 51, 0.81);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+
+.sidebar-custom{
+    background-color: rgba(22, 84, 51, 0.81);
+
+}
